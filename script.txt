@@ -1,0 +1,25 @@
+#############################
+# As user admin/admin
+#############################
+
+oc create -n openshift -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.3.0-1/eap/eap70-basic-s2i.json
+
+oc create -n openshift -f https://github.com/jboss-openshift/application-templates/raw/master/jboss-image-streams.json
+
+oc new-project ci --display-name="Continuous Integration for OpenShift" --description="This project holds all continuous integration required infrastructure, like Nexus, Jenkins,..."
+
+oc create -f https://raw.githubusercontent.com/tqvarnst/nexus-ose/master/nexus/ose3/nexus-resources.json -n ci
+
+oc new-app --template=nexus-ephemeral -n ci
+
+#############################
+# As user openshift-dev/devel
+#############################
+
+oc project sample-project
+
+oc new-app eap70-basic-s2i \
+    --param=APPLICATION_NAME=kitchensink \
+    --param=SOURCE_REPOSITORY_URL=https://github.com/tqvarnst/jboss-eap-quickstarts.git \
+    --param=SOURCE_REPOSITORY_REF=7.0.x-develop \
+    --param=CONTEXT_DIR=kitchensink
