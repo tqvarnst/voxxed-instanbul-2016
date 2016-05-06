@@ -6,8 +6,8 @@ import javax.enterprise.context.ApplicationScoped;
 public class GreetingService {
 
 	public String sayHello() {
-//		return "hello"; //English
-		return "hej"; // Swedish
+		return "hello"; //English
+//		return "hej"; // Swedish
 // 		return "marhaba"; // Arabic
 // 		return "merhaba"; // Turkish
 //		return "hole"; // Spanish
