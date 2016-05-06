@@ -6,8 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class GreetingService {
 
 	public String sayHello() {
-		// TODO Auto-generated method stub
-		return "hello";
+		return "marhaba";
 	}
 
 }
