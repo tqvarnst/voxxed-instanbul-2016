@@ -16,8 +16,8 @@ public class GreetingService {
 	}
 	
 	private String getInternationalHello() {
-		return "Hello"; //English
-//		return "Hej"; // Swedish
+//		return "Hello"; //English
+		return "Hej"; // Swedish
 // 		return "Marhaba"; // Arabic
 // 		return "Merhaba" + System.getenv("HOSTNAME"); // Turkish
 //		return "Hola"; // Spanish
